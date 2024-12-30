@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: black;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h3 {
+  color: white;
+}
+
+/* Game Board Styling */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  margin: 20px auto;
+  width: 310px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+/* Hover Animation for Empty Cells */
+.cell:not(.taken):hover {
+  background-color: #03eff4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 300px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* Winning Highlight Animation */
+@keyframes flash {
+  0%, 100% {
+      box-shadow: 0 0 10px #0FFF50, 
+                  0 0 20px #0FFF50, 
+                  0 0 30px #0FFF50, 
+                  0 0 40px #0FFF50;
+  }
+  50% {
+      box-shadow: 0 0 15px #00cc44, 
+                  0 0 25px #00cc44, 
+                  0 0 35px #00cc44, 
+                  0 0 45px #00cc44;
+  }
+}
+
+.cell.win {
+  animation: flash 1s infinite;
+  background-color: #fff; /* Keep the cell white */
+  color: black; /* Default text color */
+}
+
+/* Turn Indicator */
+#turn-indicator {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Result Message Styling */
+#result-message {
+  position: fixed;
+  top: -100px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: top 0.5s;
+}
+
+#result-message.show {
+  top: 20px; /* Slide into view */
+}
+
+/* Reset Button */
+#reset-button {
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#reset-button:hover {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 300px #03e9f4;
+}
